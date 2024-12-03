@@ -11,12 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.expensemanagerapp.databinding.ActivityMainBinding
 import com.example.expensemanagerapp.fragments.HomeFragment
-import com.example.expensemanagerapp.fragments.SettingsFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var auth:FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        binding=ActivityMainBinding.inflate(layoutInflater)
@@ -30,10 +28,6 @@ class MainActivity : AppCompatActivity() {
                     openFragment(HomeFragment())
                     true
                 }
-                R.id.setting ->{
-                    openFragment(SettingsFragment())
-                    true
-                }
                 else->false
             }
 
@@ -45,8 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun openFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.newsNavHostFragment, fragment)
-            .addToBackStack(null)
+            .replace(R.id.fragment_container, fragment)
             .commit()
     }
 }

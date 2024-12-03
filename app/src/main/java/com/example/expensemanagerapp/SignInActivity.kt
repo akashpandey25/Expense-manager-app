@@ -19,7 +19,7 @@ import com.google.firebase.auth.auth
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var googleSingnInClient:GoogleSignInClient
+    private lateinit var googleSingInClient:GoogleSignInClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivitySignInBinding.inflate(layoutInflater)
@@ -27,10 +27,10 @@ class SignInActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val gso=GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
-        googleSingnInClient= GoogleSignIn.getClient(this, gso)
+        googleSingInClient= GoogleSignIn.getClient(this, gso)
         auth= Firebase.auth
         binding.GoogleButton.setOnClickListener {
-            val signInClient=googleSingnInClient.signInIntent
+            val signInClient=googleSingInClient.signInIntent
             launcher.launch(signInClient)
         }
     }
