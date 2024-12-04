@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    tools:context=".SignInActivity"
+    android:background="#F2F1F1">
 
     <TextView
         android:id="@+id/textView"
@@ -27,8 +28,8 @@
         android:text="Google"
         android:padding="25px"
         android:textSize="16sp"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/colorError"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
