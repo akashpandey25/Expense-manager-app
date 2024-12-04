@@ -5,18 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSurface"
+    android:background="#F2F1F1"
     tools:context=".RecordActivity">
 
 
     <TextView
         android:id="@+id/RecText"
-        android:layout_width="262dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="64dp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="20dp"
         android:text="Record Expense"
+        android:drawableLeft="@drawable/baseline_arrow_back_24"
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -42,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:layout_marginStart="30dp"
             android:background="@color/colorOnPrimary"
             android:padding="10dp"
             android:text="Expense"
@@ -55,6 +56,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorOnPrimary"
             android:padding="10dp"
+            android:layout_marginStart="60dp"
             android:text="Income"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -66,7 +68,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="487dp"
-        android:background="@color/colorPrimaryVariant"
+        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +102,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="364dp"
-        android:background="@color/colorPrimaryVariant"
+        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,6 +135,8 @@
             android:layout_marginBottom="16dp"
             android:padding="10dp"
             android:text="Save"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -148,7 +152,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.005">
+        app:layout_constraintVertical_bias="0.005"
+        android:background="@color/white">
 
         <TextView
             android:layout_width="wrap_content"

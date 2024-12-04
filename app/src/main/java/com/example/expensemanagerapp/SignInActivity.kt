@@ -29,6 +29,14 @@ class SignInActivity : AppCompatActivity() {
         val gso=GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
         googleSingInClient= GoogleSignIn.getClient(this, gso)
         auth= Firebase.auth
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
+
         binding.GoogleButton.setOnClickListener {
             val signInClient=googleSingInClient.signInIntent
             launcher.launch(signInClient)

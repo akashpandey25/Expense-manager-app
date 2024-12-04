@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.expensemanagerapp.databinding.ActivityMainBinding
 import com.example.expensemanagerapp.fragments.HomeFragment
+import com.example.expensemanagerapp.fragments.SettingsFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
        binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        openFragment(HomeFragment())
 
+
+        openFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {item->
             when(item.itemId){
@@ -28,10 +30,17 @@ class MainActivity : AppCompatActivity() {
                     openFragment(HomeFragment())
                     true
                 }
+                R.id.setting ->{
+                    openFragment(SettingsFragment())
+                    true
+                }
                 else->false
             }
 
         }
+
+
+
 
 
 

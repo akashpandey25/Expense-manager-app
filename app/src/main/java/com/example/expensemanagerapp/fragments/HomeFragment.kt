@@ -12,6 +12,8 @@ import com.example.expensemanagerapp.RecordActivity
 import com.example.expensemanagerapp.adapter.ExpenseAdapter
 import com.example.expensemanagerapp.databinding.FragmentHomeBinding
 import com.example.expensemanagerapp.model.ExpenseModel
+import com.google.android.material.search.SearchBar
+import com.google.android.material.search.SearchView
 import com.google.ar.core.Config
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -29,6 +31,7 @@ class HomeFragment : Fragment() {
         binding=FragmentHomeBinding.inflate(layoutInflater)
 
         list= java.util.ArrayList()
+
         adapter= ExpenseAdapter(this, list)
 
         db=FirebaseFirestore.getInstance()
@@ -37,8 +40,14 @@ class HomeFragment : Fragment() {
             val data=value?.toObjects(ExpenseModel::class.java)
             list.addAll(data!!)
 
+
             binding.recyclerView.adapter=ExpenseAdapter(this,list)
             adapter.updateData(list)
+
+            binding.searchView.clearFocus()
+
+
+
         }
         return binding.root
     }
@@ -49,6 +58,18 @@ class HomeFragment : Fragment() {
         binding.fab.setOnClickListener {
             startActivity(Intent(requireContext(), RecordActivity::class.java))
         }
+        binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { adapter.filter(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { adapter.filter(it) }
+                return true
+            }
+        })
+
 
     }
 }
